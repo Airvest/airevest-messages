@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+            <img src="assets/images/tick1.png" alt="AireVest Bulgaria Logo" class="logo-img">
+    </header>
+    <main>
+        <h1 id="success-title">Your property has been submitted successfully.</h1>
+        <p id="success-message">Our team will review your listing and contact you shortly to discuss next steps.</p>
+        <a id="back-to-site" href="http://localhost:5173/airvest/" class="back-link">Back to the site</a>
+    </main>
+    <script>
+        // Get language from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const lang = urlParams.get('lang') || 'en';
+
+        // Update content based on language
+        const title = document.getElementById('success-title');
+        const message = document.getElementById('success-message');
+        const button = document.getElementById('back-to-site')
+        if (lang === 'bg') {
+            document.documentElement.lang = 'bg';
+            title.textContent = 'Вашият имот беше изпратен успешно.';
+            message.textContent = 'Нашият екип ще прегледа вашето предложение и ще се свърже с вас скоро, за да обсъдим следващите стъпки.';
+            button.textContent = 'Обратно към сайта'
+        }
+    </script>
+</body>
+</html>
